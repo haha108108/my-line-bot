@@ -1,0 +1,14 @@
+name: health-distributor
+type: monorepo
+
+services:
+  - name: health-distributor
+    type: python
+    build_command: pip install -r requirements.txt
+    start_command: python main.py
+    env_file:
+      - .env
+    env:
+      - { name: LINE_TOKEN, type: secret }
+      - { name: TELEGRAM_TOKEN, type: secret }
+      - { name: FB_PAGE_ACCESS_TOKEN, type: secret }
